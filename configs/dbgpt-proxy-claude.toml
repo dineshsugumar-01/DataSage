@@ -1,0 +1,46 @@
+[system]
+language = "en"
+api_keys = []
+encrypt_key = "your_secret_key"
+
+# Server Configurations
+[service.web]
+host = "0.0.0.0"
+port = 5670
+cors_allowed_origins = "*"
+
+[service.web.agent_context]
+max_context_tokens = 0
+reserved_tokens = 4096
+warning_threshold = 0.70
+error_threshold = 0.90
+critical_threshold = 0.95
+min_keep_recent_rounds = 3
+max_observation_age_rounds = 5
+truncated_observation_max_chars = 200
+min_keep_tokens = 10000
+max_compact_failures = 3
+max_parallel_subagents = 3
+
+[service.web.database]
+type = "sqlite"
+path = "pilot/meta_data/dbgpt.db"
+
+[rag.storage]
+[rag.storage.vector]
+type = "chroma"
+persist_path = "pilot/data"
+
+# Model Configurations — using OpenAI-compatible endpoint (agentrouter.org → claude-opus-4-8)
+[models]
+[[models.llms]]
+name = "claude-opus-4-8"
+provider = "proxy/openai"
+api_base = "https://agentrouter.org/v1"
+api_key = "sk-DVSC4hkJejtVRknR0PefBDmhAE99KWN5OPRhelvVvK0BjrZA"
+
+[[models.embeddings]]
+name = "text-embedding-3-small"
+provider = "proxy/openai"
+api_url = "https://agentrouter.org/v1/embeddings"
+api_key = "sk-DVSC4hkJejtVRknR0PefBDmhAE99KWN5OPRhelvVvK0BjrZA"
