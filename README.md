@@ -376,3 +376,14 @@ The next generation of **AI + Data** products will be:
 
 DataSage aims to help developers and enterprises build that future.
 
+## Team & Collaborators
+
+### Team Name: **PromptPirates**
+
+### Team Members
+- **Mithilesh**
+- **Dinesh Sugumar**
+- **Dilli Baskaran**
+- **Logesh**
+- **Haritharan**
+
